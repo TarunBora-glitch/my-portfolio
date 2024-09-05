@@ -2,8 +2,9 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background: linear-gradient(360deg, #ff7e5f, #feb47b);
   color: #333;
+  transition: all 0.5s ease-in-out;
 }
 
 .container {
@@ -12,15 +13,43 @@ body {
 }
 
 header {
-  background-color: #333;
+  background: linear-gradient(to top, #1c92d2, #f2fcfe);
   color: white;
-  padding: 1em 0;
   text-align: center;
+  padding: 2em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-photo {
+  width: 190px;
+  height: 290px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 1em;
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.4);
+  transform: perspective(500px) rotateY(15deg);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.profile-photo:hover {
+  transform: perspective(500px) rotateY(-15deg) translateY(-10px);
+  box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.6);
 }
 
 header h1 {
-  margin: 0;
-  font-size: 2.5em;
+  font-size: 3em;
+  background: -webkit-linear-gradient(#000000, #8f7e7e);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.5s ease-in-out;
+}
+
+header h1:hover {
+  transform: scale(1.1);
 }
 
 nav ul {
@@ -32,103 +61,105 @@ nav ul {
 nav ul li {
   display: inline;
   margin: 0 1em;
+  font-size: 1.2em;
 }
 
 nav ul li a {
-  color: white;
+  color: rgb(0, 0, 0);
   text-decoration: none;
-  font-weight: bold;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
 }
 
-section {
-  padding: 2em 0;
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 .hero {
-  background: #333;
+  background: linear-gradient(to bottom right, #36d1dc, #5b86e5);
   color: white;
   padding: 4em 0;
   text-align: center;
-  background-image: url('background.jpg'); /* Add a background image if desired */
-  background-size: cover;
+  animation: fadeIn 2s ease-in-out;
 }
 
-.hero h2 {
-  font-size: 2.5em;
-}
-
-.project, .contact-form {
+.project{
+  
   background: white;
   padding: 2em;
   margin-bottom: 1.5em;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  transition: all 0.3s ease;
 }
 
-.project h3 {
-  margin-top: 0;
+.project:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
 
 .btn {
   display: inline-block;
   padding: 0.5em 1em;
-  background-color: #333;
+  background: linear-gradient(45deg, #177d0c, #058117);
   color: white;
   text-decoration: none;
   border-radius: 4px;
   font-weight: bold;
+  transition: transform 0.3s ease, background 0.5s ease;
 }
 
 .btn:hover {
-  background-color: #555;
+  background: linear-gradient(45deg, #325402, #004a07);
+  transform: translateY(-5px) scale(1.1);
 }
 
-form label {
-  display: block;
-  margin-top: 1em;
-}
-
-form input, form textarea {
-  width: 100%;
-  padding: 0.75em;
-  margin-top: 0.5em;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-form input[type="submit"] {
-  background-color: #333;
+#skills ul li {
+  list-style: none;
+  display: inline-block;
+  font-size: 1.2em;
+  background: linear-gradient(45deg, #ff6b6b, #f06595);
+  padding: 10px;
+  margin: 0.5em;
   color: white;
-  border: none;
-  cursor: pointer;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
-form input[type="submit"]:hover {
-  background-color: #555;
+#skills ul li:hover {
+  transform: rotate(5deg) scale(1.1);
 }
 
 footer {
-  background-color: #333;
+  background-color: #1f4037;
+  background-image: linear-gradient(#232323 0%, #485248 74%);
   color: white;
   text-align: center;
-  padding: 1em 0;
+  padding: 2em 0;
+  position: relative;
 }
 
-.social-links a {
+footer .social-links a {
   color: white;
   text-decoration: none;
   margin: 0 1em;
-  font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.social-links a:hover {
-  text-decoration: underline;
+footer .social-links a:hover {
+  color: #aeaeae;
+  transform: scale(1.2);
 }
 
-@media (max-width: 768px) {
-  nav ul li {
-      display: block;
-      margin: 0.5em 0;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
